@@ -2,7 +2,7 @@ language: node_js
 install: true
 script: true
 after_success:
-- scp -i "se2345.pem" -r html/* ubuntu@54.255.174.42:/var/www/html/
+- scp -i "se2345.pem" -r html/* ubuntu@18.188.77.27:/var/www/html/
 before_install:
   - openssl aes-256-cbc -k "$super_secret_password" -in se2345.pem.enc -out se2345.pem -d
   - sudo chmod 400 se2345.pem
