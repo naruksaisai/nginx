@@ -1,7 +1,7 @@
 language: node_js
 before_install:
  - openssl aes-256-cbc -k "$super_secret_password" -in se2345.pem.enc -out se2345.pem -d
- - sudo chmod 400 t12.pem
+ - sudo chmod 400 se2345.pem
 install: true
 script: true
 after_success:
