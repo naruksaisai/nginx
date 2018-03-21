@@ -1,14 +1,15 @@
 language: node_js
 before_install:
- - openssl aes-256-cbc -k "$super_secret_password" -in se2345.pem.enc -out se2345.pem -d
- - sudo chmod 400 se2345.pem
+ - openssl aes-256-cbc -k "$super_secret_password" -in se2345.enc -out se2345.pem -d
+ - sudo chmod 400 t12.pem
 install: true
 script: true
 after_success:
+ - ls -1
  - scp -i "se2345.pem" -r html/* ubuntu@18.188.77.27:/var/www/html/
 env:
   global:
-    secure: rX6omHfki7fiTkFprPPhG17IwK0tMvYnWzAp3WMQYTBhIbhTxsmecqdD/wzioe5wKZnGx8r0MqlndsUqYagWBTf/w2BgLIFLMjf9A2evXscY/9D4DIGgwHoihWCf1h+K0SbgA4vLDOXJVZp+FOI3B0+O7aAHbjkZxiiNd4YaN2PbDDORlfAEV3xZ++wRp4vB/QIyKQS7lswzg/dXTzGumHHpLxnAPwn9PVSSR530AqAa4tIKuuvZXYPtJXFFGGo5SXMimX/E0FulR0kZQkwG43m6+bqO0ZXKijq2fgiMJqDKA6YjgaS34HcSjVlHXSn1Zf8kSMYrdbs0nZaNiOzdLhxasBiRkM15i6ethZiHiV58YF3dzXMC79IoMwqs6k7V/rXBHp5iBiL/Z/rS+8jpO9cx+E3Zdb9ndmVwYOi3F/GyPr745OvOJxvgln95CUqTnLhBk20kUn2akM/pkVKd3bluugNLaQ7Q1NcjakQHDbgxDuaAV2J0IEJEPUxvpj/lisMYxEqMKyzSW3RcJK59Fdq1tua3cPaig6DKM82NfxmEeVx1BW0AiRWQ9RCMi+W1k48rAv8smJNs7jxtmSWKSdGe8WFSX8zjz0AggqzSG2D98ixHk30X0E7zSR98nVD3d0JzJj+pdEG7B3GC0QHaY7s8zk24WMfwcHVF7nMpY7U=
+    secure: c7ELjkegdwdV065ycic9KueN80Nw/EhVtyiJDCTgSpS45rj4x2VutkQ5B5slztW+7fFL3tfOycxynmB3sRk9YBZU1ZEMbG8bQkx8RyRXHn9uF80R36fVvyd0BORQjMd4lrhvtHG/XTB3OHUOcrZd4+UPomLVu8K6ad19FYl6DOEsX863gyiBD57xwhCiFaK8DgQBcrIpRw+8mWYiEjZSgQt4yesz6xQtR+ZubtZiImkyvIkpqDcYD61U0awQATrjZXcVRpT47N5gkpkyp3mci754gCUl0JYWLEkyrGjnbeBfMznhaVb3Mm+rDtm4kHotOwj5cgTo9tmnMz50WlbvIP9fbrb1kRUlu7zyTcg44zth0hQdyHIXpQ6WM1Qk9F1S584vRw/WfNXU1OkROi+dV9s54jhL6Jx0jujbERjwheiOO9z0dSXMyNEMy0/3nWQOFFIVAxhx1PTred3ig8fufiUajQHu0LR++v1cdeZ+3NHcbIPC2ngekbsKoYQOrCOW9VHkyAH0a3bOmA5M4yP7gtERg5i7O8XaKaARb72N+/80fuArdsg0ysevD09SrTUQslD8TAN6MXmdk77rs9obpSOMchwbX6LGVJyMiuSDBTcpXDyhvsmnq+Hl/SGkA1WbqsVcCmhlUI0uuQ5Zq5nRuXKjwPCXBogOZHg1Bg4fx7k=
 addons:
-  ssh_known_hosts:
- - 18.188.77.27
+ ssh_known_hosts:
+  - 18.188.77.27
