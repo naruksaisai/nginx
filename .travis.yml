@@ -6,7 +6,7 @@ install: true
 before_script:
 - export DOCKER_HOST="$HOST_NAME"
 script:
-- docker build -t $DOCKER_USERNAME/htmltest .
+- docker build -t $DOCKER_USERNAME/htmltest
 - docker push $DOCKER_USERNAME/htmltest
 after_success:
 - docker stop htmltest
